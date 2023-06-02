@@ -10,11 +10,13 @@ const routeTeamsMoto3 = require("./routes/routeTeamsMoto3")
 const PORT = process.env.PORT || 3001
 const app = express();
 const conectionBD = require('./lib/mongoose')
+const cors = require('corse')
 
 //Llamar funcion para conexion mongodb
 conectionBD()
 
 //middleware
+app.use(cors())
 app.use(express.json());
 app.use('/api', routeUsers)
 app.use('/api', routeMotoGP)
