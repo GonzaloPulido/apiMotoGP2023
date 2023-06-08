@@ -39,9 +39,9 @@ router.post("/users", async (req, res) => {
 //Actualizar usuario
 router.put("/users/:id", (req, res) => {
   const { id } = req.params;
-  const { firstname, surname, age } = req.body;
+  const { userName, firstname, surname, email, age, password, favorites } = req.body;
   userSchema
-    .updateOne({ _id: id }, { $set: { firstname, surname, age } })
+    .updateOne({ _id: id }, { $set: { userName, firstname, surname, email, age, password, favorites } })
     .then((user) => res.json(user))
     .catch((err) => res.json(err));
 });
