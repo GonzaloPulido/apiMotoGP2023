@@ -36,9 +36,9 @@ router.post("/teamsMoto2", async (req, res) => {
 //Actualizar equipo
 router.put("/teamsMoto2/:id", (req, res) => {
   const { id } = req.params;
-  const { name, piloto1, piloto2, image } = req.body;
+  const { name, piloto1, piloto2, piloto1Id, piloto2Id, image } = req.body;
   teamMoto2
-    .updateOne({ _id: id }, { $set: { name, piloto1, piloto2, image } })
+    .updateOne({ _id: id }, { $set: { name, piloto1, piloto2, piloto1Id, piloto2Id, image } })
     .then((team) => res.json(team))
     .catch((err) => res.json(err));
 });
